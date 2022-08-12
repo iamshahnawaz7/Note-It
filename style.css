@@ -14,10 +14,30 @@ body{
 }
 
 header{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
+    position: relative;
+}
+.login-button {
+    position: absolute;
+    top: auto;
+    right: 3%;
+    font-size: 1.2rem;
+    background-color: #c4411d;
+    color: #fff;
+    border: none;
+    padding: 0.5% 1%;
+    transition: all 350ms ease-in-out;
+}
+.login-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
-header,
 form{
     height: 15vh;
     display: flex;
@@ -45,6 +65,10 @@ form button:hover{
     background: linear-gradient(120deg, #c4411d,#e9cf0e61);
     color: white;
 }
+select {
+    height: 48%;
+    margin: 0;
+}
 .todo-container{
     display: flex;
     justify-content: center;
@@ -54,11 +78,11 @@ form button:hover{
     min-width: 27%;
     list-style: none;
 }
-.todo{
-    margin: 0.5rem;
+.todo, .completed{
+    margin: 0.5rem 0;
     background-color: white;
-    height: 2rem;
-    width: 20rem;
+    /* height: ; */
+    min-width: 20rem;
     color: black;
     font-size: 1.5rem;
     display: flex;
@@ -66,25 +90,24 @@ form button:hover{
     align-items: center;
     transition: all 0.5s ease;
 }
-.todo li{
-    flex: 1;
-}
+
 .trash-btn,
 .complete-btn{
-    background: #ff6f47;
-    color: white;
+    background: #fff;
+    color: #ff6f47;
     border: none;
     padding: 0.5rem;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.4rem;
 }
-.complete-btn{
-    background: rgb(73,204,73);
+.complete-btn{  
+    color: rgb(73,204,73);
 }
 .todo-input{
     outline: none;
 }
- .todo-item{
+.todo-item{
+    flex: 1;
     padding: 1% 2%;
 } 
 .fa-trash, .fa-check{
@@ -93,7 +116,13 @@ form button:hover{
 .completed{
     text-decoration: line-through;
     opacity: 0.5;
+    background-color: white;
+    /* background: none; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .fall{
     transform: translateZ(8rem) rotateZ(20deg);
     opacity: 0;
@@ -109,12 +138,15 @@ select{
    margin: 1rem;
    position: relative;
    overflow: hidden;
+   height: 48%;
+
 }
 select{
     color: #ff6f47;
     width:10rem;
     cursor: pointer;
     padding: 0.83rem;
+    height: 100%;
 }
 .select::after{
     content: "\25BC";
@@ -123,6 +155,7 @@ select{
     top: 0;
     right: 0;
     padding: 0.9rem;
+    height: 100%;
     pointer-events: none;
     transition: all 0.3s ease;
 }
