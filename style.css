@@ -2,17 +2,28 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+html{
+    background-color:#E5EFC1 ;
 }
 
 body{
-    background-image: linear-gradient(120deg, #c4411d,#e9cf0e61);
+    overflow-x : hidden;
+    background-color:#E5EFC1 ;
     font-family: sans-serif;
     height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+#todo-owner{
+    color: #334637;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+}
 header{
     width: 100%;
     height: 15vh;
@@ -27,8 +38,8 @@ header{
     top: auto;
     right: 3%;
     font-size: 1.2rem;
-    background-color: #c4411d;
-    color: #fff;
+    background-color: #dfceb2;
+    color: black;
     border: none;
     padding: 0.5% 1%;
     transition: all 350ms ease-in-out;
@@ -45,7 +56,19 @@ form{
     align-items: center;
 }
 
+.form-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 0.55;
+    margin-right: 2%;
+    /* width: 90%; */
+    /* margin: 0 1% 0 3%; */
+}
+
 form input{
+    flex: 0.85;
     height: 48%;
     padding: 0 1%;
     font-size: 2rem;
@@ -53,6 +76,7 @@ form input{
     background: white;
 }
 form button{
+    flex: 0.06;
     height:48%;
     padding: 0.66rem;
     font-size: 1.2rem;
@@ -62,33 +86,50 @@ form button{
     transition: all 0.3s ease; 
 }
 form button:hover{
-    background: linear-gradient(120deg, #c4411d,#e9cf0e61);
+    background-color:  #A2D5AB;
     color: white;
 }
+
 select {
     height: 48%;
     margin: 0;
 }
 .todo-container{
+    width: 100vw;
+    height: 40vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .todo-list{
-    min-width: 27%;
+    width: 80%;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.filter-todo{
+    color:#26382a;
 }
 .todo, .completed{
     margin: 0.5rem 0;
     background-color: white;
-    /* height: ; */
-    min-width: 20rem;
+    box-shadow: 4px 2px 22px -8px rgba(89,206,143,0.67);
+-webkit-box-shadow: 4px 2px 22px -8px rgba(89,206,143,0.67);
+-moz-box-shadow: 4px 2px 22px -8px rgba(89,206,143,0.67);
+    /* min-width: 20rem; */
+    max-width: 520px;
     color: black;
+    width: 100%;
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.5s ease;
+}
+.todo:hover,.completed:hover{
+    transform: scale(1.02);
 }
 
 .trash-btn,
@@ -105,9 +146,11 @@ select {
 }
 .todo-input{
     outline: none;
+    /* width: 90%; */
 }
 .todo-item{
-    flex: 1;
+    width: 100%;
+    /* flex: 1; */
     padding: 1% 2%;
 } 
 .fa-trash, .fa-check{
@@ -135,33 +178,92 @@ select{
     border: none;
 }
 .select{
-   margin: 1rem;
+   /* margin: 1rem; */
    position: relative;
    overflow: hidden;
    height: 48%;
 
 }
 select{
-    color: #ff6f47;
+    color: #A2D5AB;
     width:10rem;
     cursor: pointer;
-    padding: 0.83rem;
+    /* padding: 0.83rem; */
+    padding: 0 8%;
     height: 100%;
 }
 .select::after{
     content: "\25BC";
     position: absolute;
-    background: #ff6f47;
+    background: #A2D5AB;
+    color: white;
     top: 0;
     right: 0;
-    padding: 0.9rem;
+     padding: 0 0.9rem; 
+     display: flex;
+     align-items: center;
     height: 100%;
     pointer-events: none;
     transition: all 0.3s ease;
 }
 .select:hover::after{
     background: white;
-    color: #ff6f47;
+    color: #A2D5AB;
+}
+
+@media screen and (max-width : 768px) {
+    header {
+        position: initial;
+    }
+    .login-button{
+        bottom: 3%;
+    }
+    #todo-owner{
+        font-size: 2.5rem;
+    }
+    form {
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 25vh;
+    }
+    .form-top{
+        /* width: 70%; */
+        height: 60%;
+        margin: 0 auto;
+    }
+    .todo-input, .todo-button{
+        height: 90%;
+    }
+    .select {
+        height: 30%;
+        font-size: 1rem;
+    }
+}
+
+@media  screen and (max-width : 570px) {
+    #todo-owner{
+        font-size: 2rem;
+    }
+    form {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .form-top{
+        width: 100%;
+    }
+    .todo-input{
+        width: 90%;
+    }
+    .todo, .completed {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media screen and (max-width : 430px) {
+    form{
+        width: 95%;
+    }
 }
 
 

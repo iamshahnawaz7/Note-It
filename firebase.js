@@ -158,6 +158,7 @@ function addTodo(event){
     event.preventDefault();
     todo.push(`${todoInput.value}`);
     updateDocument();
+     todoInput.value= "";
 }
 
 function deleteCheck(e){
